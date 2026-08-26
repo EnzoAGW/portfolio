@@ -70,7 +70,10 @@ export const experience: ExperienceEntry[] = [
         project: "Telemedicine platform",
         text: "Implemented OnPush change detection on physician listing components, eliminating unnecessary re-renders and ensuring smooth performance with high-volume data lists.",
       },
-      // Marcha.io (whitelabel payment platform) — pending real content from Enzo.
+      {
+        project: "Marcha.io",
+        text: "Built the tenant-branding layer for a multi-tenant whitelabel financial management platform — custom domains, animations, and per-company colors and assets resolved at runtime, so each client's instance looks like their own product.",
+      },
     ],
   },
   {
@@ -166,6 +169,12 @@ export const projects: ProjectEntry[] = [
     stack: [".NET / ASP.NET Core", "Next.js", "Chakra UI", "PostgreSQL"],
     result:
       "Shipped a working three-role scheduling flow (admin / physician / patient) with self-service password recovery, used as the reference build for later role-based-access work.",
+    links: [
+      {
+        label: "Live demo",
+        href: "https://medagenda-drab.vercel.app",
+      },
+    ],
   },
   {
     name: "Ledgr",
