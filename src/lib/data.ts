@@ -185,6 +185,12 @@ export const projects: ProjectEntry[] = [
     stack: [".NET / ASP.NET Core", "Angular", "PostgreSQL", "Docker"],
     result:
       "A clean multi-tenant dashboard demonstrating org-scoped data access, CI via GitHub Actions, and containerized deployment.",
+    links: [
+      {
+        label: "Live demo",
+        href: "https://ledgr-mu-two.vercel.app",
+      },
+    ],
   },
   {
     name: "Sonoscape",
