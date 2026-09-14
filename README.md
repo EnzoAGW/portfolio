@@ -1,4 +1,8 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Enzo Alexandre — Portfolio
+
+Personal portfolio site — fullstack case studies (Bookly, MedAgenda, Ledgr, Sonoscape), stack, and experience. Built with Next.js and a custom react-three-fiber/GLSL shader hero (a serrated near-black surface that lights up near the cursor).
+
+Live: https://portfolio-enzoagws-projects.vercel.app
 
 ## Getting Started
 

@@ -186,4 +186,20 @@ export const projects: ProjectEntry[] = [
     result:
       "A clean multi-tenant dashboard demonstrating org-scoped data access, CI via GitHub Actions, and containerized deployment.",
   },
+  {
+    name: "Sonoscape",
+    tagline: "Real-time audio-reactive 3D visualizer",
+    problem:
+      "Most audio visualizers are decorative — color gradients pulsing to volume. Building one that's real engineering work (not just a pretty shader) means driving actual 3D geometry from frequency-band analysis in real time.",
+    role: "Solo — built the audio engine, 3D scene, and shader pipeline from scratch, no framework.",
+    stack: ["Three.js", "Web Audio API", "TypeScript", "Vite", "GLSL"],
+    result:
+      "96 instanced 3D bars driven independently by live bass/mid/treble analysis (Web Audio AnalyserNode), rendered in a single draw call with a real EffectComposer bloom pipeline — reacts to any local audio file or live microphone input.",
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/EnzoAGW/sonoscape",
+      },
+    ],
+  },
 ];
