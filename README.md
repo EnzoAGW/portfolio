@@ -2,7 +2,7 @@
 
 Personal portfolio site — fullstack case studies (Bookly, MedAgenda, Ledgr, Sonoscape), stack, and experience. Built with Next.js and a custom react-three-fiber/GLSL shader hero (a serrated near-black surface that lights up near the cursor).
 
-Live: https://portfolio-enzoagws-projects.vercel.app
+Live: https://portfolio-psi-orpin-tv8uedqanx.vercel.app
 
 ## Getting Started
 
