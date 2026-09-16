@@ -208,4 +208,69 @@ export const projects: ProjectEntry[] = [
       },
     ],
   },
+  {
+    name: "Relay",
+    tagline: "Polyglot webhook delivery platform — .NET domain, Node.js delivery",
+    problem:
+      "Every SaaS eventually needs reliable webhook delivery — signed payloads, automatic retries, dead-lettering after repeated failures — and doing it well spans concerns better suited to different runtimes: a strongly-typed domain model versus highly concurrent I/O.",
+    role:
+      "Solo — designed the transactional outbox bridging both runtimes, built the .NET domain API, the Node.js delivery worker and rate-limiting gateway, and a parallel serverless deployment variant.",
+    stack: [
+      ".NET 10",
+      "ASP.NET Core",
+      "MediatR (CQRS)",
+      "PostgreSQL",
+      "Node.js",
+      "TypeScript",
+      "Redis Streams",
+      "Terraform",
+      "AWS Lambda",
+    ],
+    result:
+      "An event written once flows through a transactional outbox into a Redis Streams consumer group, gets HMAC-signed and delivered with exponential backoff, and dead-letters after repeated failures — verified end to end against real infrastructure, and re-proven as a fully serverless variant (API Gateway, Lambda, DynamoDB, SQS) provisioned by Terraform.",
+  },
+  {
+    name: "Prism",
+    tagline: "Angular micro-frontend console composing independently deployed dashboards",
+    problem:
+      "A CRUD dashboard with roles demonstrates the same pattern twice. Showing depth beyond that means proving something senior Angular roles actually ask about — real Module Federation, and modern reactive state without reaching for NgRx by default.",
+    role:
+      "Solo — designed the shell/remote split, built both federated remotes, and the signals-based state layer.",
+    stack: ["Angular", "Native Federation", "Signals", "TypeScript", "Socket.io-client"],
+    result:
+      "A shell that composes two independently built, independently deployable Angular remotes at runtime — a live status view and a webhook-events view — each holding state in plain signals instead of NgRx, verified by an end-to-end test that builds and serves all three apps separately before confirming they compose correctly.",
+  },
+  {
+    name: "Chorus",
+    tagline: "Real-time chat proving WebSockets scale horizontally, not just claiming it",
+    problem:
+      "Socket.io's default broadcast only reaches clients connected to the same process. \"This scales horizontally\" is an easy claim to make and a rarely verified one.",
+    role:
+      "Solo — built the chat, wired in the Redis adapter, and wrote the cross-instance verification most teams never actually run.",
+    stack: ["Node.js", "Express", "Socket.io", "Redis adapter", "Redis"],
+    result:
+      "Two independent server processes, zero shared memory, bridged only by a Redis adapter — proven with an automated test that drives two real browser sessions against two real instances and fails the build if a message doesn't cross between them.",
+  },
+  {
+    name: "Conveyor",
+    tagline: "Async file-processing pipeline — image thumbnails and CSV validation off the request thread",
+    problem:
+      "Processing a large upload inline ties up a request thread on work that was never request/response-shaped — and any endpoint accepting user-controlled URLs or file types needs real trust-boundary validation, not just a try/catch.",
+    role:
+      "Solo — built the queue-backed pipeline and both processors, then hardened it (SSRF guard, content verification, unguessable job IDs) after a dedicated security review.",
+    stack: ["Node.js", "Express", "BullMQ", "Redis", "sharp", "csv-parse", "Server-Sent Events"],
+    result:
+      "Uploads return a job ID in milliseconds while a separate worker resizes images or validates CSVs row by row, reporting live progress over SSE or a signed webhook — hardened against SSRF, IDOR, and content-type spoofing after review.",
+  },
+  {
+    name: "Pulse",
+    tagline: "Live status dashboard monitoring every other project in this portfolio",
+    problem:
+      "A portfolio of live demos is only as trustworthy as its uptime, and a recruiter clicking through several projects has no way to know if one is quietly down.",
+    role:
+      "Solo — built the monitoring service, the real-time dashboard, and the CI-status fallback for projects with no public deployment.",
+    stack: ["Node.js", "Express", "Socket.io", "SQLite", "node-cron"],
+    result:
+      "A single live dashboard pinging every deployed project on its own schedule, pushing updates to connected browsers with zero client-side polling — and, for backend-only projects with no public URL, falling back to their CI build status instead of pretending to ping something that isn't there.",
+  },
 ];
